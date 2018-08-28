@@ -24,7 +24,6 @@ export default Component.extend({
     // NOTE: apparently this will work even if this script lands after the element is rendered
     const tagName = 'script';
     const id = 'facebook-jssdk';
-    let js;
     const fjs = document.getElementsByTagName(tagName)[0];
     if (document.getElementById(id)) { return; }
 
@@ -34,7 +33,7 @@ export default Component.extend({
     rootEl.id = 'fb-root';
     document.body.append(rootEl);
 
-    js = document.createElement(tagName);
+    const js = document.createElement(tagName);
     js.id = id;
     js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1";
     fjs.parentNode.insertBefore(js, fjs);
