@@ -1,19 +1,16 @@
-import { reads } from '@ember/object/computed';
+import { computed } from '@ember/object';
 import Component from '@ember/component';
 
 export default Component.extend({
 
   classNames: [ 'fb-video' ],
 
-  attributeBindings: [ 'data-href', 'data-width', 'data-allowfullscreen' ],
+  attributeBindings: [ 'url:data-href', 'width:data-width', 'data-allowfullscreen' ],
 
-  allowFullscreen: true,
-  'data-allowfullscreen': reads('allowFullscreen'),
-
-  width: 'auto',
-  'data-width': reads('width'),
-
-  'data-href': reads('url'),
+  allowFullscreen: false,
+  'data-allowfullscreen': computed('allowFullscreen', function () {
+    return this.get('allowFullscreen') ? 'true' : 'false';
+  }),
 
   init() {
     this._super(...arguments);
