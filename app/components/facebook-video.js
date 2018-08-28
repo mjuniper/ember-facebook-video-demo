@@ -1,12 +1,6 @@
 import { reads } from '@ember/object/computed';
 import Component from '@ember/component';
 
-/*
-  NOTE:
-    * https://developers.facebook.com/docs/plugins/embedded-video-player/# indicates that we need to include an appId but it works without it....
-    * this is probably not fastboot friendly
-*/
-
 export default Component.extend({
 
   classNames: [ 'fb-video' ],
